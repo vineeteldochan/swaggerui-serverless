@@ -17,20 +17,6 @@ const options = {
 
 app.use('/', swaggerUi.serve, swaggerUi.setup(null, options));
 
-app.get('/login', async (req,res) =>{
-    const params = {
-        Bucket: process.env.BUCKET, 
-        Key: process.env.LOGIN_FILE
-    };
-    await s3.getObject(params, (err,body)=>{
-        if(!err){
-            res.send(body)
-        }else{
-            res.err('Invalid file');
-        }
-    });
-})
-
 module.exports = app
 
 function signUrl(bucket, file) {

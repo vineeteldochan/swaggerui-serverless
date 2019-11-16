@@ -61,21 +61,35 @@ functions:
       - http:
           path: /{proxy+}
           method: get
-          # authorizer:
-          #   name: auth
-          #   resultTtlInSeconds: 0
-          #   identitySource: method.request.header.Authorization
-          #   identityValidationExpression: someRegex
-          #   type: token
+          request:
+            parameters:  
+              headers:
+                Authorization: false
+          # cors:
+          #   origin: '*'
+          #   headers:
+          #     - Authorization
+          authorizer:
+            name: auth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
+            type: request
       - http:
           path: /
           method: get
-          # authorizer:
-          #   name: auth
-          #   resultTtlInSeconds: 0
-          #   identitySource: method.request.header.Authorization
-          #   identityValidationExpression: someRegex
-          #   type: token
+          request:
+            parameters:  
+              headers:
+                Authorization: false
+          # cors:
+          #   origin: '*'
+          #   headers:
+          #     - Authorization
+          authorizer:
+            name: auth
+            resultTtlInSeconds: 0
+            identitySource: method.request.header.Authorization
+            type: request
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
@@ -124,12 +138,19 @@ functions:
 #       Value: "Some output value"
   auth:
     handler: auth.handler
-  login:
-    handler: login.handler
-    events:
-      - http:
-          path: /login
-          method: get
     environment:
       BUCKET: vintest-swagger
-      LOGIN_FILE: login.html
+      FILE: credentials.json
+resources:
+  Resources:
+    GatewayResponse:
+      Type: 'AWS::ApiGateway::GatewayResponse'
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.WWW-Authenticate: "'Basic'"
+          # gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          # gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: UNAUTHORIZED
+        RestApiId: 
+          Ref: 'ApiGatewayRestApi'
+        StatusCode: '401'
