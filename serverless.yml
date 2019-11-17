@@ -2,7 +2,7 @@
 # Date: 2019-11-17
 
 service: swaggerui
-frameworkVersion: "=1.56.1"
+# frameworkVersion: "=1.56.1"
 
 # Each module would be packaged independently optimizing the zip file for lambda
 package:
