@@ -12,8 +12,8 @@ exports.handler = (event, context, callback) => {
     const password = plainCreds[1]
     
     const params = {
-        Bucket: process.env.BUCKET,
-        Key: process.env.FILE
+        Bucket: process.env.CREDENTIALS_BUCKET,
+        Key: process.env.CREDENTIALS_FILE
     };
     s3.getObject(params, (err,data)=>{
         let credentials = '';

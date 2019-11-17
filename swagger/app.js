@@ -7,7 +7,7 @@ const s3 = new init({apiVersion: '2006-03-01'})
  
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-const signedUrl = signUrl(process.env.BUCKET, process.env.FILE);
+const signedUrl = signUrl(process.env.SWAGGER_BUCKET, process.env.SWAGGER_FILE);
 console.log("Signed URL: ",signedUrl)
 const options = {
     swaggerOptions: {
