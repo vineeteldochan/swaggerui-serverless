@@ -10,11 +10,13 @@ The swagger file and the credentials can be placed in an S3 bucket for easy acce
 
 ### :factory: Architecture:
 
-Swagger UI is deployed on a lambda function using packages like [AWS-Serverless-Express](https://github.com/awslabs/aws-serverless-express) which provides calls from lambda to an Express app. It also makes use of the [Swagger-UI-Express](https://github.com/scottie1984/swagger-ui-express) package which helps run swagger in express.
+Swagger UI is deployed on a lambda function using packages like [AWS-Serverless-Express](https://github.com/awslabs/aws-serverless-express) which provides calls from lambda to an [Express](https://github.com/expressjs/express) app. It also makes use of the [Swagger-UI-Express](https://github.com/scottie1984/swagger-ui-express) package which helps run swagger in express.
 
 We use a authorizer to validate the basic authentication credentials. This lambda function is invoked by AWS API Gateway. The gateway response is modified to give back the WWW-Authenticate header.
 
 The deployment is made using [Serverless](https://github.com/serverless/serverless)
+
+[Serverless Webpack](https://github.com/serverless-heaven/serverless-webpack) along with [Webpack](https://github.com/webpack/webpack) is used to optimize the dependencies on each lambda function to what it actually needs.
 
 ### :package: Run
     Clone the git repository
