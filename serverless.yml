@@ -20,6 +20,18 @@ service: swaggerui
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+package:
+  individually: true
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
 provider:
   name: aws
   runtime: nodejs10.x
@@ -53,7 +65,7 @@ provider:
 
 functions:
   swagger:
-    handler: swaggerUI.swagger
+    handler: swagger/swaggerUI.swagger
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -137,7 +149,7 @@ functions:
 #       Description: "Description for the output"
 #       Value: "Some output value"
   auth:
-    handler: auth.handler
+    handler: authorizer/auth.handler
     environment:
       BUCKET: vintest-swagger
       FILE: credentials.json
