@@ -1,4 +1,4 @@
-# :baggage_claim: Swagger UI Serverless with Basic Authentication [ AWS ]
+## :baggage_claim: Swagger UI Serverless with Basic Authentication [ AWS ]
 
 Use this project to deploy SwaggerUI on a lambda with basic authentication. 
 The swagger file and the credentials can be placed in an S3 bucket for easy access and does not require modifications to the code.
@@ -6,7 +6,7 @@ The swagger file and the credentials can be placed in an S3 bucket for easy acce
 
 ### :construction: Prerequisites:
     - S3 bucket: To store the json file and the credentials file.
-    - Serverless: To deploy the project to AWS
+    - [Serverless](https://github.com/serverless/serverless): To deploy the project to AWS
     - AWS Account: Configure an AWS account locally using AWS cli
 
 ### :factory: Architecture:
