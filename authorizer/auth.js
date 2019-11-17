@@ -34,6 +34,8 @@ exports.handler = (event, context, callback) => {
             if(match === false){
                 return callback('Unauthorized')
             }
+        } else {
+          return callback('Unauthorized')
         }
         
         var authResponse = buildAllowAllPolicy(event, username)
