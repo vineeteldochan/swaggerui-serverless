@@ -16,6 +16,10 @@ exports.handler = (event, context, callback) => {
         Key: process.env.CREDENTIALS_FILE
     };
     s3.getObject(params, (err,data)=>{
+        if (err){
+          console.log("ERROR: "+err);
+          return callback('Credentials Not Found')
+        }
         let credentials = '';
         try {
             credentials = JSON.parse(data.Body.toString('utf-8'));
