@@ -6,7 +6,7 @@ The swagger file and the credentials can be placed in an S3 bucket for easy acce
 
 ### :construction: Prerequisites:
     - S3 bucket: To store the json file and the credentials file.
-    - [Serverless](https://github.com/serverless/serverless): To deploy the project to AWS
+    - [Serverless](https://github.com/serverless/serverless) : To deploy the project to AWS
     - AWS Account: Configure an AWS account locally using AWS cli
 
 ### :factory: Architecture:
