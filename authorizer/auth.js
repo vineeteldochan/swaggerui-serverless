@@ -35,6 +35,7 @@ exports.handler = (event, context, callback) => {
                 return callback('Unauthorized')
             }
         } else {
+          console.log("CREDENTIALS NOT FOUND")
           return callback('Unauthorized')
         }
         
