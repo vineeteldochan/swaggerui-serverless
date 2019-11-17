@@ -29,13 +29,15 @@ The deployment is made using [Serverless](https://github.com/serverless/serverle
 ### :closed_lock_with_key: Credentials
 
 The format for the credentials is as below:
-    [
-        {
-            "username": "...",
-            "password": "..."
-        },
-        {
-            "username": "...",
-            "password": "..."
-        }
-    ]
+```
+[
+    {
+        "username": "...",
+        "password": "..."
+    },
+    {
+        "username": "...",
+        "password": "..."
+    }
+]
+```
