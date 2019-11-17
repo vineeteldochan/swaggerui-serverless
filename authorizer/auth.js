@@ -18,7 +18,8 @@ exports.handler = (event, context, callback) => {
     s3.getObject(params, (err,data)=>{
         if (err){
           console.log("ERROR: "+err);
-          return callback('Credentials Not Found')
+          // Needs modification to show the error message in the browser
+          return callback('Authorizer Configuration Error')
         }
         let credentials = '';
         try {
