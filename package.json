@@ -1,8 +1,15 @@
 {
   "name": "swaggerui-serverless",
   "version": "1.0.0",
-  "description": "",
-  "main": "handler.js",
+  "description": "Swagger UI Serverless with Basic Authentication [ AWS ]",
+  "main": "swagger/swaggerUI.js",
+  "scripts": {
+    "configure": "aws configure",
+    "deploy": "sls deploy"
+  },
+  "author": "Vineet Eldochan",
+  "homepage": "https://github.com/vineeteldochan/swaggerui-serverless",
+  "license": "MIT",
   "dependencies": {
     "aws-sdk": "^2.562.0",
     "aws-serverless-express": "^3.3.6",
@@ -13,9 +20,12 @@
     "serverless-webpack": "^5.3.1",
     "webpack": "^4.41.2"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "swagger",
+    "serverless",
+    "aws",
+    "swaggerUI",
+    "basic auth",
+    "authentication"
+  ]
 }
